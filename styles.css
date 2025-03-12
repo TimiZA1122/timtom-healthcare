@@ -1,0 +1,1117 @@
+/* ============================= */
+/* GENERAL STYLES */
+/* ============================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===========================================
+    "Welcome to TimTom" Section
+=========================================== */
+
+/* Main Heading (Professional & Modern) */
+.hero-text h1 {
+    font-size: 4.5rem;
+    font-weight: 800; /* Extra Bold */
+    font-family: "Poppins", sans-serif; /* Modern, clean font */
+    text-transform: uppercase; /* Enhances strong branding */
+    letter-spacing: 1.5px; /* Slight spacing for sleekness */
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Soft glow for readability */
+}
+
+/* Subheading (Refined & Elegant) */
+.hero-text h2 {
+    font-size: 1.8rem;
+    font-weight: 500; /* Not too heavy, adds balance */
+    font-family: "Poppins", sans-serif;
+    color: rgba(255, 255, 255, 0.85); /* Slightly faded for elegance */
+    margin-top: 10px; /* Spacing below main title */
+    letter-spacing: 1px;
+}
+
+/* Responsive Scaling for Different Devices */
+@media (max-width: 992px) {
+    .hero-text h1 {
+        font-size: 3.8rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* ============================= */
+/* NAVBAR STYLES */
+/* ============================= */
+
+/* Initially Transparent Navbar */
+.custom-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    box-shadow: none;
+    height: 80px;
+    border-bottom: none;
+    opacity: 1;
+    transition: background-color 0.6s ease-in-out, box-shadow 0.6s ease-in-out, border-bottom 0.6s ease-in-out;
+    padding: 0 5%;
+}
+
+/* Navbar Links - Always Visible on Web */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Ensure links are visible in web view */
+.navbar-nav .nav-item {
+    margin-right: 2vw;
+}
+
+.navbar-nav .nav-item a {
+    color: #265c82 !important; /* Ensures text stays visible */
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item a:hover {
+    color: #1d4975;
+}
+
+/* Ensures Navbar Padding Adjusts on Different Devices */
+.navbar {
+    padding: 1rem 0;
+}
+
+/* Navbar Brand Spacing */
+.navbar-brand {
+    margin-right: 4vw;
+}
+
+/* Navbar Links Always Visible in White Initially */
+.nav-text {
+    color: white !important;
+    font-weight: bold;
+    transition: color 0.6s ease-in-out;
+}
+
+/* Logo Resizes for Different Screens */
+.navbar-logo {
+    height: 70px;
+    max-width: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out, height 0.3s ease-in-out;
+}
+
+/* Adjust Navbar & Logo on Scroll */
+.nav-visible {
+    background-color: white !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #ddd;
+}
+
+.nav-visible .nav-text {
+    color: black !important;
+}
+
+.nav-visible .navbar-logo {
+    opacity: 1;
+}
+
+/* ===========================================
+   Dropdown for Mobile Only
+=========================================== */
+
+/* Fix Dropdown for Small Screens Only */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: white;
+        width: 250px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        transform: translateY(-15px);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    }
+
+    /* When dropdown is open */
+    .navbar-collapse.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Ensure smooth fade-out effect when closing */
+    .navbar-collapse.closing {
+        transform: translateY(-15px);
+        opacity: 0;
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+
+    /* Ensure dropdown disappears when clicking the toggle */
+    .navbar-toggler {
+        border: none;
+        outline: none;
+        background: transparent !important;
+    }
+
+    /* Fix Dropdown Text Visibility */
+    .navbar-collapse .nav-link {
+        color: #265c82 !important;
+        font-weight: bold;
+    }
+}
+
+/* Fixes Navbar Visibility on Web */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important; /* Always show navbar items on web */
+        position: static;
+        width: auto;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-item a {
+        color: #265c82 !important;
+    }
+}
+
+/* ===========================================
+    Professional & Modern Hero Section
+=========================================== */
+
+/* Ensures the hero section is centered & responsive */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Background Image */
+.hero-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark Overlay for Readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay for better contrast */
+}
+
+/* Text Container */
+.hero-text {
+    position: absolute;
+    color: white;
+    text-align: center;
+    max-width: 80%;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/* Main Heading - Bold & Professional */
+.hero-text h1 {
+    font-size: 4.5rem;
+    font-weight: 800; /* Extra Bold */
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    margin-bottom: 15px;
+}
+
+/* Subheading - Balanced & Clean */
+.hero-text p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 1px;
+}
+
+/* Animation for Smooth Entrance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================= */
+/* Responsive Scaling */
+/* ============================= */
+@media (max-width: 992px) {
+    .hero-text h1 {
+        font-size: 3.8rem;
+    }
+    .hero-text p {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+    .hero-text p {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* ============================= */
+/* CONTACT SECTION STYLES */
+/* ============================= */
+
+/* Contact Section Background */
+.contact-section {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(230, 230, 230, 0.9));
+    padding: 50px 0;
+}
+
+/* Contact Details Section */
+.contact-details {
+    background: none; /* REMOVE the solid background */
+    border-radius: 10px;
+    text-align: center;
+    max-width: 900px;
+    margin: auto; /* Centers the contact section */
+    padding: 30px; /* Adjust spacing */
+}
+
+/* Contact Details Text */
+.contact-details h2 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.contact-details p {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+/* Ensure Email Links Stand Out */
+.contact-details a {
+    text-decoration: none;
+    color: #265c82;
+    font-weight: bold;
+}
+
+/* CONTACT RESPONSIVENESS */
+
+/* For Tablets */
+@media (max-width: 1024px) {
+    .contact-details {
+        max-width: 80%;
+    }
+}
+
+/* For Mobile Screens */
+@media (max-width: 768px) {
+    .contact-details h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact-details p {
+        font-size: 1.2rem;
+    }
+}
+
+/* For Small Phones */
+@media (max-width: 576px) {
+    .contact-details {
+        max-width: 90%;
+    }
+
+    .contact-details h2 {
+        font-size: 1.6rem;
+    }
+
+    .contact-details p {
+        font-size: 1.1rem;
+    }
+}
+/* ============================= */
+/* MAP STYLES */
+/* ============================= */
+
+.map-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Ensures Map Stays in Place Properly */
+.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 450px; /* Adjust height as needed */
+}
+
+/* Blue Border Below Map */
+.blue-border {
+    width: 100%;
+    height: 70px;
+    background-color: #265c82;
+}
+
+/* RESPONSIVENESS FOR MAP */
+
+@media (max-width: 768px) {
+    .map-container iframe {
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .map-container iframe {
+        height: 350px;
+    }
+}
+
+/* ============================= */
+/* BUTTON STYLES */
+/* ============================= */
+
+.book-now-btn {
+    background-color: #265c82;
+    color: #fff;
+    border-radius: 30px;
+    padding: 12px 28px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block; /* Ensures proper alignment */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.book-now-btn:hover {
+    background-color: #1d4975;
+    transform: scale(1.08);
+}
+
+/* RESPONSIVENESS FIX FOR BUTTONS */
+@media (max-width: 768px) {
+    .book-now-btn {
+        padding: 10px 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .book-now-btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/* ============================= */
+/* CAROUSEL STYLES */
+/* ============================= */
+
+/* Larger Carousel Arrows - Solid Dark #265c82 */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 55px;
+    height: 55px;
+    background-size: 55px 55px;
+    filter: brightness(0) saturate(100%) invert(10%) sepia(60%) saturate(400%) hue-rotate(170deg) contrast(180%);
+}
+
+.position-absolute {
+    height: 100%;
+}
+
+/* Extended Arrow Positioning */
+.carousel-control-prev {
+    left: -10%;
+}
+
+.carousel-control-next {
+    right: -10%;
+}
+
+/* RESPONSIVE CAROUSEL FIXES */
+@media (max-width: 1024px) {
+    .carousel-control-prev {
+        left: -7%;
+    }
+
+    .carousel-control-next {
+        right: -7%;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-control-prev {
+        left: -5%;
+    }
+
+    .carousel-control-next {
+        right: -5%;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-control-prev {
+        left: -3%;
+    }
+
+    .carousel-control-next {
+        right: -3%;
+    }
+}
+
+
+
+/* ============================= */
+/* NAVBAR STYLES */
+/* ============================= */
+
+.custom-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    box-shadow: none;
+    height: 80px;
+    transition: background-color 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+
+/* Navbar When Scrolled */
+.nav-visible {
+    background-color: white !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #ddd;
+}
+
+/* Navbar Text */
+.nav-text {
+    color: white !important;
+    font-weight: bold;
+    transition: color 0.6s ease-in-out;
+}
+
+/* Change Text to Black When Navbar Appears */
+.nav-visible .nav-text {
+    color: black !important;
+}
+
+/* Navbar Logo - Initially Hidden */
+.navbar-logo {
+    height: 70px;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+/* Show Logo When Navbar Becomes Visible */
+.nav-visible .navbar-logo {
+    opacity: 1;
+}
+
+/* Mobile Menu Button */
+.navbar-toggler {
+    border: none;
+}
+
+/* Ensure Navbar Stays Fixed on Small Screens */
+@media (max-width: 1024px) {
+    .custom-navbar {
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-toggler {
+        margin-right: 15px;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 10px;
+    }
+}
+
+/* RESPONSIVE NAVBAR FIX */
+@media (max-width: 576px) {
+    .navbar-logo {
+        height: 50px;
+    }
+
+    .nav-text {
+        font-size: 1rem;
+    }
+}
+/* ===========================================
+    Hero Section for All Screen Sizes
+=========================================== */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Background Image */
+.hero-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark Overlay */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(75, 72, 72, 0.5);
+}
+
+/* Hero Text */
+.hero-text {
+    position: absolute;
+    text-align: center;
+    color: white;
+    max-width: 80%;
+    animation: slideInFade 2.5s ease-out forwards;
+}
+
+/* Adjust Hero Text Sizes for Small Screens */
+@media (max-width: 992px) {
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
+/* Animation for Hero Text */
+@keyframes slideInFade {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure Image Fills Full Height */
+.img-container {
+    display: flex;
+    align-items: stretch;
+    background-color: #e9ecef;
+}
+
+/* Make Image Cover Full Height */
+.full-height-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ensure Image Stays Consistent on All Screen Sizes */
+@media (max-width: 992px) {
+    .img-container {
+        min-height: 300px; /* Adjust minimum height for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .full-height-img {
+        height: auto; /* Let image adjust naturally on very small screens */
+    }
+}
+/* ===========================================
+    "What We Can Do For You" Section 
+=========================================== */
+
+/* Ensure row stays in place */
+.row.g-0 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Ensure text column and image stay side by side */
+@media (min-width: 768px) {
+    .col-md-6 {
+        flex: 1;
+    }
+}
+
+/* Fix issue where image drops below on iPad */
+@media (max-width: 992px) {
+    .row.g-0 {
+        flex-direction: row;
+    }
+
+    .col-md-6 {
+        width: 50%;
+    }
+}
+
+/* Ensure full height for images */
+.full-height-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Fix spacing and prevent text from squishing */
+@media (max-width: 768px) {
+    .row.g-0 {
+        flex-direction: column;
+    }
+
+    .col-md-6 {
+        width: 100%;
+    }
+
+    .full-height-img {
+        height: auto;
+    }
+
+    .px-5 {
+        padding: 20px !important;
+    }
+}
+
+/* ===========================================
+    "How Can We Help You?" Section
+=========================================== */
+
+/* Make the left image full height on large screens, stack on smaller ones */
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* Ensure text scales properly */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5%;
+}
+
+/* Ensure the Carousel container scales */
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* Make text readable on mobile */
+@media (max-width: 992px) {
+    .image-container {
+        height: 60vh; /* Reduce height on smaller screens */
+    }
+
+    .image-container img {
+        height: 60vh;
+    }
+
+    .content-container {
+        padding: 3%;
+    }
+}
+
+@media (max-width: 768px) {
+    .row.g-0 {
+        flex-direction: column;
+    }
+
+    .image-container {
+        height: auto;
+    }
+
+    .image-container img {
+        height: auto;
+    }
+
+    .content-container {
+        padding: 20px;
+    }
+
+    .carousel-inner img {
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-container h2 {
+        font-size: 2rem;
+    }
+
+    .content-container p {
+        font-size: 1rem;
+    }
+
+    .carousel-inner img {
+        max-height: 200px;
+    }
+}
+
+/* ===========================================
+    "Get In Touch Now" Section
+=========================================== */
+
+/* Section Title Styling */
+.section-title {
+    background-color: #265c82;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Make Contact Info Text Scalable */
+.contact-description {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+}
+
+/* Ensure Form Container and Details Stack Properly */
+.form-container {
+    padding: 20px;
+}
+
+/* Contact Details Section */
+.contact-details {
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Remove Underline from Email */
+.email-link {
+    text-decoration: none;
+}
+
+/* Fix Form & Details Layout on Smaller Screens */
+@media (max-width: 992px) {
+    .row.g-0 {
+        flex-direction: column;
+    }
+
+    .form-container {
+        padding: 10px;
+    }
+
+    .contact-details {
+        margin-top: 20px;
+    }
+}
+
+/* Ensure Map & Border Are Connected */
+.map-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: -5px;
+}
+
+.blue-border {
+    width: 100%;
+    height: 70px;
+    background-color: #265c82;
+}
+
+/* Ensure Buttons Scale Well */
+.submit-btn {
+    background-color: #265c82;
+    font-size: 1.2rem;
+    padding: 12px;
+    border-radius: 30px;
+}
+
+/* ===========================================
+   Booking Popup 
+=========================================== */
+
+body {
+    background: url('smiling_nurse.webp') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+/* Tinted Overlay on Background */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: -1;
+}
+
+/* Booking Section Layout */
+.booking-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Booking Card */
+.booking-card {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    background: rgba(248, 249, 250, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Booking Card Header */
+.booking-card-header {
+    background: #265c82;
+    color: white;
+    padding: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Dropdown with Arrow */
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-container select {
+    appearance: none;
+    width: 100%;
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+.dropdown-container::after {
+    content: "▼";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #265c82;
+    pointer-events: none;
+}
+
+/* Loading Spinner */
+.loading {
+    display: none;
+    font-size: 1.2rem;
+    color: #265c82;
+    font-weight: bold;
+}
+
+.loading::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 3px solid #265c82;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Booking Confirmed */
+.checkmark {
+    display: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #265c82;
+}
+
+/* Overlay Background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+/* Error Messages */
+.error-message {
+    display: none;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+/* Book Now Button */
+.book-now-btn {
+    background-color: #265c82;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.book-now-btn:hover {
+    background-color: #1e4b6d;
+    color: white !important;
+}
+
+/* ===========================================
+    Map Layout 
+=========================================== */
+
+/* Ensure map takes full width */
+.map-container {
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure iframe fills container */
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    display: block;
+}
+
+/* Ensure the blue border below map stays connected */
+.blue-border {
+    width: 100%;
+    height: 70px;
+    background-color: #265c82;
+    margin-top: -4px;
+}

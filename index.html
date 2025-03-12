@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimTom Healthcare</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+
+<body>
+
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="TimTomLogo2.0.png" alt="Logo" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav-text scroll-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-text scroll-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-text scroll-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-text scroll-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  
+
+<!-- Home Section -->
+<div id="home" class="hero-section">
+  <img src="TimTombackdrop.jpeg" alt="TimTom Background" class="img-fluid">
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+      <h1>Welcome To TimTom Healthcare</h1>
+      <p>Helping to build a healthy Community</p>
+  </div>
+</div>
+
+
+</body>
+</html>
+
+
+   <!--About section-->
+  <section id="about" class="container-fluid my-0 p-0">
+    <div class="w-100 text-center py-4 section-title">
+      What We Can Do For You
+    </div>
+  <div class="row g-0">
+    <div class="col-md-6 d-flex align-items-center" style="background-color: #f8f9fa;">
+      <div class="px-5 py-5">
+        <h2 style="color: #265c82; font-size: 2rem; font-weight: bold;">
+          Professional Care &amp; Support
+        </h2>
+        <p style="font-size: 1.1rem; color: #333; line-height: 1.6;">
+          Our team of compassionate caregivers provides personal home care, meal support, foot care, and more, tailoring our services to meet individual needs and preferences. We focus on promoting independence and dignity, ensuring you or your loved ones receive the best possible care with attention to detail, respect for personal choices, and a commitment to enhancing quality of life. Our caregivers are trained to offer a safe, supportive environment, helping you feel comfortable, cared for, and valued every step of the way.
+        </p>
+
+        <h2 style="color: #265c82; font-size: 2rem; font-weight: bold; margin-top: 2rem;">
+          Our Reputation
+        </h2>
+        <p style="font-size: 1.1rem; color: #333; line-height: 1.6;">
+          TimTom Healthcare has built a strong foundation of trust and reliability, committed to delivering quality care that meets the highest standards. We enrich the lives of seniors and their families across Canada by providing personalized services that prioritize health, safety, and well-being. Our dedicated team works closely with families to create a supportive environment where seniors can maintain their independence and dignity.
+        </p>
+        
+      </div>
+    </div>
+<div class="col-md-6 d-flex align-items-stretch justify-content-center img-container">
+  <img src="Health.jpg" alt="Service Image" class="img-fluid full-height-img">
+</div>
+</section>
+
+
+
+<!-- Border For Seperation -->
+<hr style="border: 25px solid #265c82; margin: 0; background-color: #265c82; opacity: 1;">
+
+
+<!-- Services Section -->
+<section id="services" class="container-fluid p-0 position-relative">
+  <div class="row g-0">
+   <div class="col-lg-6 col-md-12 image-container">
+     <img src="Home-Health-Nursing.png" alt="New Section Image" class="img-fluid">
+   </div>
+   <div class="col-lg-6 col-md-12 text-center content-container">
+     <div class="text-center mb-4">
+       <h2 style="color: #265c82; font-size: 2.5rem; font-weight: bold;">
+         How Can We Help You?
+       </h2>
+       <p style="font-size: 1.1rem; color: #555; max-width: 600px; margin: 0 auto;">
+         Explore our wide range of services designed to meet your needs and enhance your quality of life.
+       </p>
+     </div>
+
+     <!-- Carousel with Smoky White Backdrop -->
+     <div class="p-4 shadow-lg" style="max-width: 750px; background: rgba(255, 255, 255, 0.85); border-radius: 15px;">
+       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+         <div class="carousel-inner">
+
+
+           <!-- Slide 1 -->
+           <div class="carousel-item active">
+            <div class="text-center">
+                <img class="img-fluid rounded" src="backdrophands.jpg" alt="Support Services">
+                <div class="mt-3">
+                    <h3 style="color: #265c82; font-weight: bold;">Support Services</h3>
+                    <a href="javascript:void(0);" class="btn book-now-btn" 
+                       onclick="openBooking('Support Services', '$50')">
+                       Book Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="text-center">
+              <img class="img-fluid rounded" src="BAthing.jpg" alt="Bathing & Dressing">
+              <div class="mt-3">
+                  <h3 style="color: #265c82; font-weight: bold;">Bathing & Dressing</h3>
+                  <a href="javascript:void(0);" class="btn book-now-btn" 
+                    onclick="openBooking('Bathing & Dressing', '$60')">
+                    Book Now
+                  </a>
+              </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="text-center">
+              <img class="img-fluid rounded" src="personal Hygine 2.0.jpg" alt="Personal Hygiene">
+              <div class="mt-3">
+                  <h3 style="color: #265c82; font-weight: bold;">Personal Hygiene</h3>
+                  <a href="javascript:void(0);" class="btn book-now-btn" 
+                    onclick="openBooking('Personal Hygiene', '$55')">
+                    Book Now
+                  </a>
+              </div>
+          </div>
+        </div>
+
+          <!-- Slide 4 -->
+          <div class="carousel-item">
+            <div class="text-center">
+                <img class="img-fluid rounded" src="Meal support.jpg" alt="Meal Support">
+                <div class="mt-3">
+                    <h3 style="color: #265c82; font-weight: bold;">Meal Support</h3>
+                    <a href="javascript:void(0);" class="btn book-now-btn" 
+                      onclick="openBooking('Meal Support', '$45')">
+                      Book Now
+                    </a>
+                </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="carousel-item">
+            <div class="text-center">
+                <img class="img-fluid rounded" src="Light Exercise .jpg" alt="Exercise & Rehabilitation">
+                <div class="mt-3">
+                    <h3 style="color: #265c82; font-weight: bold;">Exercise & Rehabilitation</h3>
+                    <a href="javascript:void(0);" class="btn book-now-btn" 
+                      onclick="openBooking('Exercise & Rehabilitation', '$70')">
+                      Book Now
+                    </a>
+                </div>
+            </div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="carousel-item">
+            <div class="text-center">
+                <img class="img-fluid rounded" src="Sight seeing.jpg" alt="Sight Seeing">
+                <div class="mt-3">
+                    <h3 style="color: #265c82; font-weight: bold;">Sight Seeing</h3>
+                    <a href="javascript:void(0);" class="btn book-now-btn" 
+                      onclick="openBooking('Sight Seeing', '$65')">
+                      Book Now
+                    </a>
+                </div>
+            </div>
+          </div>
+
+            <!-- Slide 7 -->
+            <div class="carousel-item">
+              <div class="text-center">
+                  <img class="img-fluid rounded" src="Shopping.jpg" alt="Shopping">
+                  <div class="mt-3">
+                      <h3 style="color: #265c82; font-weight: bold;">Shopping</h3>
+                      <a href="javascript:void(0);" class="btn book-now-btn" 
+                        onclick="openBooking('Shopping', '$40')">
+                        Book Now
+                      </a>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Slide 8 -->
+            <div class="carousel-item">
+              <div class="text-center">
+                  <img class="img-fluid rounded" src="Childcare.jpg" alt="Pediatric Consultation">
+                  <div class="mt-3">
+                      <h3 style="color: #265c82; font-weight: bold;">Pediatric Consultation</h3>
+                      <a href="javascript:void(0);" class="btn book-now-btn" 
+                        onclick="openBooking('Pediatric Consultation', '$80')">
+                        Book Now
+                      </a>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Slide 9 -->
+            <div class="carousel-item">
+              <div class="text-center">
+                  <img class="img-fluid rounded" src="Footcare3.0.webp" alt="Foot Care">
+                  <div class="mt-3">
+                      <h3 style="color: #265c82; font-weight: bold;">Foot Care</h3>
+                      <a href="javascript:void(0);" class="btn book-now-btn" 
+                        onclick="openBooking('Foot Care', '$50')">
+                        Book Now
+                      </a>
+                  </div>
+              </div>
+            </div>
+
+         </div>
+
+         <!-- Carousel Controls -->
+         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+         </a>
+         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+         </a>
+       </div>
+     </div>
+   </div>
+  </div>
+
+  
+
+
+
+ <!-- Booking Pop-up -->
+<div class="overlay" onclick="closeBooking()"></div>
+
+<div class="booking-card" id="booking-card">
+    <div class="booking-card-header" id="service-header">Service Name - $50 (45 min)</div>
+    <div class="p-3">
+        <label class="form-label" style="font-weight: bold; color: #265c82;">Select Date</label>
+        <input type="date" id="date" class="form-control mb-3" required>
+        
+        <label class="form-label" style="font-weight: bold; color: #265c82;">Select Time</label>
+        <select id="time" class="form-control mb-3">
+            <!-- JavaScript will populate this -->
+        </select>
+
+        <label class="form-label mt-3" style="font-weight: bold; color: #265c82;">Client Name</label>
+        <input type="text" id="client-name" class="form-control mb-3" placeholder="Enter your name" required>
+
+        <label class="form-label" style="font-weight: bold; color: #265c82;">Email</label>
+        <input type="email" id="client-email" class="form-control mb-3" placeholder="Enter your email" required>
+
+        <label class="form-label" style="font-weight: bold; color: #265c82;">Phone Number</label>
+        <input type="tel" id="client-phone" class="form-control mb-3" placeholder="Enter your phone number" required>
+
+        <label class="form-label" style="font-weight: bold; color: #265c82;">What do you need assistance with?</label>
+        <textarea id="assistance-details" class="form-control mb-3" rows="3" placeholder="Enter details"></textarea>
+        
+        <button class="btn w-100 text-white" style="background-color: #265c82; font-size: 1.2rem; padding: 12px; border-radius: 30px; font-weight: bold;" onclick="confirmBooking()">Confirm Booking</button>
+        
+        <!--  Status Messages -->
+        <div class="loading mt-3" style="display: none;"> Processing...</div>
+        <div class="checkmark mt-3" style="display: none; color: green;"> Booking Confirmed!</div>
+        <div class="error-message mt-3" style="display: none; color: red;"> Booking Failed. Please try again.</div>
+        
+        <!--  Error Message for Missing Fields -->
+        <div class="missing-fields-error mt-3" style="display: none; color: red; font-weight: bold;">
+            Please fill out all required fields.
+        </div>
+    </div>
+</div>
+
+  
+
+</section>
+
+<!-- Bootstrap 5 JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+<!-- Contact Section with Parallax Background -->
+<section id="contact" class="contact-section position-relative" 
+    style="background: url('Nurse2.0.webp') center/cover fixed no-repeat; padding: 100px 0;">
+
+    <!-- Thin Top Border (Now Perfectly Connected) -->
+    <div style="width: 100%; height: 15px; background-color: #265c82; position: absolute; top: 0; left: 0;"></div>
+
+    <!-- Dark Blue Tint Overlay -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(38, 92, 130, 0.6);"></div>
+
+    <div class="container text-white text-center position-relative" style="max-width: 1000px; width: 90%;">
+        <!-- Title -->
+        <h2 class="mb-4" style="font-size: 3rem; font-weight: bold;">Get in Touch</h2>
+
+        <!-- Description (Now Centered & Spaced Out) -->
+        <p style="max-width: 700px; font-size: 1.3rem; margin: 0 auto 40px;">
+            We ensure our clients receive the best possible care and families are kept up-to-date with developments.
+            Call us today to discuss your loved one's care.
+        </p>
+
+        <!-- Contact Info Block (Now Properly Laid Out & Spaced) -->
+        <div class="mt-4" style="font-size: 1.6rem; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+            
+            <!-- Opening Hours -->
+            <div class="text-center">
+                <h3 class="text-center mb-3" style="font-size: 2.2rem; font-weight: bold;">Opening Hours</h3>
+                <p><strong>Monday - Friday:</strong> 24/7</p>
+                <p><strong>Saturday:</strong> 9:00 AM - 11:00 PM</p>
+                <p><strong>Sunday:</strong> Closed</p>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="text-center mt-4">
+                <h3 class="text-center mb-3" style="font-size: 2.2rem; font-weight: bold;">Contact Details</h3>
+                <p><strong>📍 Address:</strong> 7-384 Lime Ridge Rd E</p>
+                <p><strong>📞 Cell:</strong> 647-739-7718</p>
+                <p><strong>☎️ Home:</strong> 289-408-8676</p>
+                <p><strong>📧 Email:</strong> 
+                    <a href="mailto:TimTomHealthcare@gmail.com" class="text-white email-link">
+                        TimTomHealthcare@gmail.com
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section (Flush with Bottom of Page) -->
+<div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.2438332916746!2d-79.86685082346328!3d43.22779657105615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c9b6b9f3e2b9b%3A0x6f3e5b9c2b0e7f6c!2s7-384%20Limeridge%20Rd%20E%2C%20Hamilton%2C%20ON%20L9A%202S7%2C%20Canada!5e0!3m2!1sen!2sca!4v1710100000000"
+      width="100%" height="450" style="border: none;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
+<!-- Thicker Bottom Border (UNDER the Map but still connected) -->
+<div style="width: 100%; height: 46px; background-color: #265c82;"></div>
+
+
+
+
+ <script src="script.js"></script>
+
+
+
+
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+
+    function closeNavbar() {
+        navbarCollapse.classList.add("closing");
+        setTimeout(() => {
+            navbarCollapse.classList.remove("show", "closing");
+            navbarToggler.setAttribute("aria-expanded", "false");
+        }, 400);
+    }
+
+    navbarToggler.addEventListener("click", function () {
+        if (navbarCollapse.classList.contains("show")) {
+            closeNavbar(); // Close when clicking toggle
+        } else {
+            navbarCollapse.classList.add("show");
+            navbarToggler.setAttribute("aria-expanded", "true");
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!navbarToggler.contains(event.target) && !navbarCollapse.contains(event.target)) {
+            closeNavbar();
+        }
+    });
+});
+
+
+  </script>
+  
+
+ </body>
+ </html>
