@@ -1,4 +1,3 @@
-
 // Navbar Scroll Effect
 document.addEventListener("DOMContentLoaded", function() {
     let navbar = document.querySelector(".custom-navbar");
@@ -109,8 +108,7 @@ function closeBooking() {
     document.querySelector(".overlay").style.display = "none";
 }
 
-
-//Booking Confirmed
+// Booking Confirmed
 function confirmBooking() {
     let date = document.getElementById("date").value;
     let time = document.getElementById("time").value;
@@ -126,7 +124,7 @@ function confirmBooking() {
     document.querySelector(".error-message").style.display = "none";
     errorMessage.style.display = "none"; // Hide error message initially
 
-    //  Check if any field is empty
+    // Check if any field is empty
     if (!date || !time || !clientName || !email || !phone || !assistance) {
         errorMessage.style.display = "block"; // Show the error message
         return;
@@ -141,10 +139,13 @@ function confirmBooking() {
         assistance: assistance
     };
 
-    //  Show "Processing..." animation
+    // Show "Processing..." animation
     document.querySelector(".loading").style.display = "block";
 
-    fetch("http://localhost:3000/book", {
+    // Use the environment variable for the API URL
+    const apiUrl = process.env.REACT_APP_API_URL || 'https://timtom-healthcare.onrender.com';  // fallback URL if env variable is not set
+
+    fetch(`${apiUrl}/book`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -161,28 +162,25 @@ function confirmBooking() {
         document.querySelector(".loading").style.display = "none"; // Hide processing animation
 
         if (data.message.includes("successfully")) {
-            document.querySelector(".checkmark").style.display = "block"; //  Show success
+            document.querySelector(".checkmark").style.display = "block"; // Show success
             setTimeout(() => {
                 closeBooking(); // Auto-close booking form after success
             }, 2000);
         } else {
-            document.querySelector(".error-message").style.display = "block"; //  Show error
+            document.querySelector(".error-message").style.display = "block"; // Show error
         }
     })
     .catch(error => {
-        console.error(" Booking Error:", error);
+        console.error("Booking Error:", error);
         document.querySelector(".loading").style.display = "none";
-        document.querySelector(".error-message").style.display = "block"; //  Show error
+        document.querySelector(".error-message").style.display = "block"; // Show error
     });
 }
-
-
-
 
 // Fetch bookings for admin dashboard
 async function fetchBookings() {
     try {
-        let response = await fetch("http://localhost:3000/admin/bookings");
+        let response = await fetch("https://timtom-healthcare.onrender.com/admin/bookings");
         let bookings = await response.json();
 
         let bookingsTable = document.getElementById("bookingsTable");
@@ -199,7 +197,7 @@ async function fetchBookings() {
             bookingsTable.innerHTML += row;
         });
     } catch (error) {
-        console.error(" Error fetching bookings:", error);
+        console.error("Error fetching bookings:", error);
     }
 }
 

@@ -9,13 +9,14 @@ const bcrypt = require('bcrypt');
 const Booking = require('./models/Booking');
 const User = require('./models/User');
 const path = require('path');
+const fetch = require('node-fetch'); // Import fetch for the /api/test route
 
 const app = express();
 const PORT = 3000;
 
-// Use CORS with the Netlify frontend URL
+// Use CORS with the appropriate frontend URLs
 app.use(cors({
-    origin: 'https://timtom-healthcare.netlify.app' // Allow only the Netlify frontend to access this backend
+    origin: ['https://timtom-healthcare.netlify.app', 'https://api.timtomhealthcare.com'] // Allow both the Netlify frontend and the API subdomain
 }));
 
 // Middleware
@@ -200,19 +201,15 @@ app.post('/register', async (req, res) => {
     }
 });
 
-app.post('/login', async (req, res) => {
+// Test API Route
+app.get('/api/test', async (req, res) => {
     try {
-        const { username, password } = req.body;
-        const user = await User.findOne({ username });
-        if (!user || !await bcrypt.compare(password, user.password)) {
-            return res.status(401).json({ message: " Invalid credentials" });
-        }
-
-        // Generate and send JWT token (add logic as needed)
-        const token = jwt.sign({ id: user._id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.json({ message: "Login successful", token });
+        const response = await fetch('https://api.timtomhealthcare.com/api/endpoint');
+        const data = await response.json();
+        res.json(data);
     } catch (error) {
-        res.status(500).json({ message: "Error logging in", error });
+        console.error('Error fetching data:', error);
+        res.status(500).json({ error: 'Failed to fetch data' });
     }
 });
 
