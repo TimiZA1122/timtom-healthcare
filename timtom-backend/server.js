@@ -13,22 +13,26 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-//  Middleware
+// Use CORS with the Netlify frontend URL
+app.use(cors({
+    origin: 'https://timtom-healthcare.netlify.app' // Allow only the Netlify frontend to access this backend
+}));
+
+// Middleware
 app.use(express.json());
-app.use(cors());
 
 // Default Route to Avoid "Cannot GET /"
 app.get('/', (req, res) => {
     res.send(" TimTom Backend is Running!");
 });
 
-//  MongoDB Connection
+// MongoDB Connection
 console.log(" MongoDB URI:", process.env.MONGO_URI);
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log(" Connected to MongoDB successfully!"))
     .catch(err => console.error(" MongoDB connection failed:", err));
 
-//  Set Up OAuth2 for Gmail
+// Set Up OAuth2 for Gmail
 const OAuth2Client = new google.auth.OAuth2(
     process.env.CLIENT_ID,
     process.env.CLIENT_SECRET,
@@ -36,7 +40,7 @@ const OAuth2Client = new google.auth.OAuth2(
 );
 OAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 
-//  Email Transporter
+// Email Transporter
 async function createTransporter() {
     const accessToken = await OAuth2Client.getAccessToken();
     return nodemailer.createTransport({
@@ -52,7 +56,7 @@ async function createTransporter() {
     });
 }
 
-//  Send Booking Confirmation Email to User
+// Send Booking Confirmation Email to User
 async function sendConfirmationEmail(email, client_name, date, time, service) {
     const transporter = await createTransporter();
     await transporter.sendMail({
@@ -91,7 +95,7 @@ async function sendConfirmationEmail(email, client_name, date, time, service) {
         `,
         attachments: [
             {
-                filename: 'TimTomLogo copy.jpg', // Updated filename
+                filename: 'TimTomLogo copy.jpg',
                 path: path.join(__dirname, 'TimTomLogo copy.jpg'),
                 cid: 'logo@timtomhealthcare'
             }
@@ -99,14 +103,13 @@ async function sendConfirmationEmail(email, client_name, date, time, service) {
     });
 }
 
-
-//  Send Notification Email to Admin
+// Send Notification Email to Admin
 async function sendAdminNotification(client_name, email, phone, date, time, assistance) {
     try {
         const transporter = await createTransporter();
         await transporter.sendMail({
             from: `"TimTom Healthcare" <${process.env.EMAIL_USER}>`,
-            to: process.env.ADMIN_EMAIL, // Ensure this is set in your .env
+            to: process.env.ADMIN_EMAIL,
             subject: " New Booking Alert - TimTom Healthcare",
             text: `
 📌 A new booking has been made!
@@ -129,10 +132,7 @@ async function sendAdminNotification(client_name, email, phone, date, time, assi
     }
 }
 
-
-
-
-//  Booking API Endpoint
+// Booking API Endpoint
 app.post('/book', async (req, res) => {
     try {
         console.log(" Booking request received:", req.body);
@@ -140,20 +140,20 @@ app.post('/book', async (req, res) => {
         // Extract data correctly
         const { client_name, email, phone, date, time, assistance } = req.body;
 
-        //  Ensure all fields are provided
+        // Ensure all fields are provided
         if (!client_name || !email || !phone || !date || !time || !assistance) {
             console.error(" Missing fields:", req.body);
             return res.status(400).json({ message: " Missing required fields!" });
         }
 
-        //  Create new booking entry
+        // Create new booking entry
         const newBooking = new Booking({ client_name, email, phone, date, time, assistance });
         await newBooking.save();
 
         // Send confirmation email to the client
         await sendConfirmationEmail(email, client_name, date, time, assistance);
 
-        //  Send notification email to the admin ( Correct order)
+        // Send notification email to the admin
         await sendAdminNotification(client_name, email, phone, date, time, assistance);
 
         console.log(" Booking saved successfully!", newBooking);
@@ -165,11 +165,7 @@ app.post('/book', async (req, res) => {
     }
 });
 
-
-
-
-
-//  Authentication Middleware
+// Authentication Middleware
 const authenticateUser = (req, res, next) => {
     const token = req.headers.authorization;
     if (!token) return res.status(401).json({ message: 'Unauthorized' });
@@ -181,7 +177,7 @@ const authenticateUser = (req, res, next) => {
     });
 };
 
-//  Get all bookings (Protected Route)
+// Get all bookings (Protected Route)
 app.get('/admin/bookings', authenticateUser, async (req, res) => {
     try {
         const bookings = await Booking.find();
@@ -191,7 +187,7 @@ app.get('/admin/bookings', authenticateUser, async (req, res) => {
     }
 });
 
-//  User Authentication (Login System)
+// User Authentication (Login System)
 app.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -211,14 +207,16 @@ app.post('/login', async (req, res) => {
         if (!user || !await bcrypt.compare(password, user.password)) {
             return res.status(401).json({ message: " Invalid credentials" });
         }
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.json({ token });
+
+        // Generate and send JWT token (add logic as needed)
+        const token = jwt.sign({ id: user._id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        res.json({ message: "Login successful", token });
     } catch (error) {
-        res.status(500).json({ message: " Error logging in" });
+        res.status(500).json({ message: "Error logging in", error });
     }
 });
 
-//  Start Server
+// Start the server
 app.listen(PORT, () => {
-    console.log(` Server running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
