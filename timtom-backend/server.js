@@ -14,9 +14,22 @@ const fetch = require('node-fetch'); // Import fetch for the /api/test route
 const app = express();
 const PORT = 3000;
 
+// Allowed origins for CORS
+const allowedOrigins = [
+    'https://timtom-healthcare.netlify.app',
+    'https://timtomhealthcare.com',
+    'https://timtom-healthcare.onrender.com/',
+];
+
 // Use CORS with the appropriate frontend URLs
 app.use(cors({
-    origin: ['https://timtom-healthcare.netlify.app', 'https://api.timtomhealthcare.com'] // Allow both the Netlify frontend and the API subdomain
+    origin: function(origin, callback) {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            callback(null, true);  // Allow the request
+        } else {
+            callback(new Error('Not allowed by CORS'));  // Reject the request
+        }
+    }
 }));
 
 // Middleware
@@ -188,32 +201,7 @@ app.get('/admin/bookings', authenticateUser, async (req, res) => {
     }
 });
 
-// User Authentication (Login System)
-app.post('/register', async (req, res) => {
-    try {
-        const { username, password } = req.body;
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new User({ username, password: hashedPassword });
-        await newUser.save();
-        res.json({ message: " User registered successfully!" });
-    } catch (error) {
-        res.status(500).json({ message: " Error registering user" });
-    }
-});
-
-// Test API Route
-app.get('/api/test', async (req, res) => {
-    try {
-        const response = await fetch('https://api.timtomhealthcare.com/api/endpoint');
-        const data = await response.json();
-        res.json(data);
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        res.status(500).json({ error: 'Failed to fetch data' });
-    }
-});
-
-// Start the server
+// Start Server
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
