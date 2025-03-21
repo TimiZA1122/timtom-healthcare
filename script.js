@@ -41,7 +41,7 @@ const swiper = new Swiper('.slider-wrapper', {
     }
 });
 
-//Smooth Scrolling 
+// Smooth Scrolling 
 document.addEventListener("DOMContentLoaded", function() {
     // Smooth scrolling for navbar links
     const scrollLinks = document.querySelectorAll(".scroll-link");
@@ -142,8 +142,8 @@ function confirmBooking() {
     // Show "Processing..." animation
     document.querySelector(".loading").style.display = "block";
 
-    // Use the environment variable for the API URL
-    const apiUrl = process.env.REACT_APP_API_URL || 'https://timtom-healthcare.onrender.com';  // fallback URL if env variable is not set
+    // Use a fallback API URL if process.env.REACT_APP_API_URL is not defined
+    const apiUrl = 'https://timtom-healthcare.onrender.com';  // Direct URL for the API
 
     fetch(`${apiUrl}/book`, {
         method: "POST",
@@ -170,36 +170,8 @@ function confirmBooking() {
             document.querySelector(".error-message").style.display = "block"; // Show error
         }
     })
-    .catch(error => {
-        console.error("Booking Error:", error);
-        document.querySelector(".loading").style.display = "none";
+    .catch(err => {
+        document.querySelector(".loading").style.display = "none"; // Hide processing animation
         document.querySelector(".error-message").style.display = "block"; // Show error
     });
 }
-
-// Fetch bookings for admin dashboard
-async function fetchBookings() {
-    try {
-        let response = await fetch("https://timtom-healthcare.onrender.com/admin/bookings");
-        let bookings = await response.json();
-
-        let bookingsTable = document.getElementById("bookingsTable");
-        bookingsTable.innerHTML = "<tr><th>Name</th><th>Email</th><th>Date</th><th>Time</th><th>Service</th></tr>";
-
-        bookings.forEach(booking => {
-            let row = `<tr>
-                <td>${booking.client_name}</td>
-                <td>${booking.email}</td>
-                <td>${booking.date}</td>
-                <td>${booking.time}</td>
-                <td>${booking.assistance}</td>
-            </tr>`;
-            bookingsTable.innerHTML += row;
-        });
-    } catch (error) {
-        console.error("Error fetching bookings:", error);
-    }
-}
-
-window.onload = fetchBookings;
-
